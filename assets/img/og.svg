@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Hotel Flooring, a Premrest business">
+  <rect width="1200" height="630" fill="#E8E0D4"/>
+  <rect x="48" y="48" width="1104" height="534" rx="36" fill="#F7F3EC"/>
+  <rect x="48" y="430" width="1104" height="152" rx="0" fill="#19241F"/>
+  <rect x="48" y="430" width="1104" height="36" fill="#19241F"/>
+  <text x="96" y="210" fill="#16181A" font-family="Georgia, serif" font-size="72">Hotel flooring</text>
+  <text x="96" y="290" fill="#995E2E" font-family="Georgia, serif" font-size="72">that stays open.</text>
+  <text x="96" y="360" fill="#5E6366" font-family="system-ui, sans-serif" font-size="28">Melbourne · Sydney · Brisbane · 1300 207 915</text>
+  <text x="96" y="520" fill="#F7F3EC" font-family="system-ui, sans-serif" font-size="22">Hotel Flooring, a Premrest business</text>
+</svg>
