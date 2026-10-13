@@ -9,7 +9,8 @@ Plain HTML/CSS/vanilla JS. No framework. No build step. Deploy the repo root on 
 - `vercel.json` enables `cleanUrls` and `trailingSlash`, and 301s `www.hotelflooring.com.au` to the apex.
 - Folder URLs: `melbourne/index.html` → `/melbourne/`.
 - Forms POST to Formspree `https://formspree.io/f/mkolyele`.
-- GA4 measurement ID is left as a commented placeholder in every `<head>`. On successful submit, `generate_lead` fires only if `window.gtag` exists.
+- GA4 measurement ID `G-CW60MQTLVF` is in every page `<head>`. On successful submit, `generate_lead` fires only if `window.gtag` exists.
+- Google Search Console file: `/googlecd542bdb4b02289d.html`.
 
 ## Brand rules
 
@@ -68,6 +69,6 @@ Plain HTML/CSS/vanilla JS. No framework. No build step. Deploy the repo root on 
 
 ## Design
 
-Typography, colour tokens, sheet layout, pill buttons, nav overlay and forest footer follow the sister site [comcorkflooring.com.au](https://comcorkflooring.com.au) (Newsreader + Inter Tight, charcoal / burnt orange / warm page / forest). Visuals are CSS patterns, not stock photographs.
+Typography, colour tokens, sheet layout, pill buttons, nav overlay and forest footer follow the sister site [comcorkflooring.com.au](https://comcorkflooring.com.au) (Newsreader + Inter Tight, charcoal / burnt orange / warm page / forest). Hotel interiors are licensed Unsplash/Pexels stock plus Premrest/Comcork hospitality photos — sources and licences in `assets/img/photos/SOURCES.md`. Stock is not captioned as a Premrest hotel project.
 
 Sister links: [premrest.com.au](https://premrest.com.au), [premrestflooring.com.au](https://premrestflooring.com.au), [modularcarpet.com.au](https://modularcarpet.com.au), [comcorkflooring.com.au](https://comcorkflooring.com.au).

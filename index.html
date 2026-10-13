@@ -25,15 +25,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/site.css">
-  <!-- GA4: paste your measurement ID below. Do not invent one.
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CW60MQTLVF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    gtag('config', 'G-CW60MQTLVF');
   </script>
-  -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -255,9 +253,32 @@
           </div>
           
       <div class="stage">
-        <div class="stage__frame rounded-panel shadow-lift" role="img" aria-label="Abstract hotel corridor flooring pattern">
-          <div class="visual visual-corridor"></div>
-          <p class="stage__caption">Corridors, rooms and public areas — staged around occupancy</p>
+        <div class="stage__frame rounded-panel shadow-lift" data-carousel>
+          <figure class="is-active" data-caption="Hotel corridor with commercial carpet">
+            <img src="/assets/img/photos/hero-corridor.webp" alt="Long hotel corridor with patterned commercial carpet and guest-room doors" width="1600" height="900" fetchpriority="high">
+          </figure>
+          <figure data-caption="Guest room interior">
+            <img src="/assets/img/photos/hero-room.webp" alt="Hotel guest room with carpet, bed and window seating" width="1600" height="1068" loading="lazy">
+          </figure>
+          <figure data-caption="Hotel lobby">
+            <img src="/assets/img/photos/hero-lobby.webp" alt="Hotel lobby with reception desk and hard and soft flooring" width="1600" height="900" loading="lazy">
+          </figure>
+          <figure data-caption="Function room set for an event">
+            <img src="/assets/img/photos/hero-function.webp" alt="Hotel function room with banquet tables on carpet" width="1600" height="1066" loading="lazy">
+          </figure>
+          <figure data-caption="Hospitality dining room — Comcork by Premrest">
+            <img src="/assets/img/photos/hero-hospitality.webp" alt="Hospitality dining room with Comcork flooring installed by Premrest" width="1600" height="1066" loading="lazy">
+          </figure>
+          <div class="stage__caption">
+            <p data-carousel-caption>Hotel corridor with commercial carpet</p>
+            <div class="stage__dots" role="tablist" aria-label="Hotel interiors">
+              <button type="button" role="tab" data-carousel-dot aria-selected="true" aria-label="Show corridor"></button>
+              <button type="button" role="tab" data-carousel-dot aria-selected="false" aria-label="Show guest room"></button>
+              <button type="button" role="tab" data-carousel-dot aria-selected="false" aria-label="Show lobby"></button>
+              <button type="button" role="tab" data-carousel-dot aria-selected="false" aria-label="Show function room"></button>
+              <button type="button" role="tab" data-carousel-dot aria-selected="false" aria-label="Show hospitality dining room"></button>
+            </div>
+          </div>
         </div>
       </div>
       <ul class="points">
@@ -295,25 +316,25 @@
         <h2 class="display-lg">Where hotel floors fail first — and what we put down.</h2>
         <div class="cards" style="margin-top:2rem">
           <a class="card" href="/hotel-corridor-carpet/">
-            <div class="visual-mini visual-corridor" role="img" aria-label="Corridor carpet pattern"></div>
+            <div class="card-photo"><img src="/assets/img/photos/card-corridor.webp" alt="Hotel hallway with carpet and a row of guest-room doors" width="900" height="600" loading="lazy"></div>
             <h3>Corridors</h3>
             <p>The highest-wear path in the building. Acoustic carpet that takes luggage wheels, room-service trolleys and night traffic without looking tired in year two.</p>
             <span class="more">Hotel corridor carpet →</span>
           </a>
           <a class="card" href="/hotel-room-flooring/">
-            <div class="visual-mini visual-carpet" role="img" aria-label="Guest room carpet pattern"></div>
+            <div class="card-photo"><img src="/assets/img/photos/card-room.webp" alt="Hotel guest room with carpet and made bed" width="900" height="592" loading="lazy"></div>
             <h3>Guest rooms</h3>
             <p>Warm underfoot, quiet for the room next door, and replaceable when a single room is damaged. Carpet, carpet tile or LVT by brand standard.</p>
             <span class="more">Hotel room flooring →</span>
           </a>
           <a class="card" href="/function-rooms/">
-            <div class="visual-mini visual-function" role="img" aria-label="Function room flooring pattern"></div>
+            <div class="card-photo"><img src="/assets/img/photos/card-function.webp" alt="Function room with banquet tables on carpet" width="900" height="600" loading="lazy"></div>
             <h3>Function rooms &amp; ballrooms</h3>
             <p>Patterned broadloom and Axminster that can take chair scrapes, dance floors and changeovers, installed in dark hours between events.</p>
             <span class="more">Function room flooring →</span>
           </a>
           <a class="card" href="/hotel-vinyl-flooring/">
-            <div class="visual-mini visual-vinyl" role="img" aria-label="Vinyl plank pattern"></div>
+            <div class="card-photo"><img src="/assets/img/photos/page-vinyl.webp" alt="Timber-look vinyl plank flooring in an interior" width="1600" height="1068" loading="lazy"></div>
             <h3>LVT, vinyl &amp; wet areas</h3>
             <p>Plank and tile for suites and F&amp;B. Welded sheet vinyl and slip-resistant finishes for bathrooms, kitchens, laundry and pool surrounds.</p>
             <span class="more">Hotel vinyl flooring →</span>
@@ -355,21 +376,21 @@
         <p class="lead" style="max-width:46rem">City pages cover how we run hotel work in that market. National groups can brief one programme across all three.</p>
         <div class="city-row" style="margin-top:2rem">
           <a class="city-card" href="/melbourne/">
-            <div class="visual-mini visual-lobby" role="img" aria-label="Melbourne hotel flooring visual"></div>
+            <div class="card-photo"><img src="/assets/img/photos/city-melbourne.webp" alt="Hotel lobby interior" width="900" height="506" loading="lazy"></div>
             <div class="city-card__body">
               <h3>Melbourne</h3>
               <p>CBD, Southbank, Docklands and metro hotel flooring, staged around occupancy.</p>
             </div>
           </a>
           <a class="city-card" href="/sydney/">
-            <div class="visual-mini visual-corridor" role="img" aria-label="Sydney hotel flooring visual"></div>
+            <div class="card-photo"><img src="/assets/img/photos/city-sydney.webp" alt="Hotel buildings around a pool terrace" width="900" height="600" loading="lazy"></div>
             <div class="city-card__body">
               <h3>Sydney</h3>
               <p>Harbour, CBD, airport and Greater Sydney hotels and serviced apartments.</p>
             </div>
           </a>
           <a class="city-card" href="/brisbane/">
-            <div class="visual-mini visual-carpet" role="img" aria-label="Brisbane hotel flooring visual"></div>
+            <div class="card-photo"><img src="/assets/img/photos/city-brisbane.webp" alt="Hotel facade and entrance at dusk" width="900" height="600" loading="lazy"></div>
             <div class="city-card__body">
               <h3>Brisbane</h3>
               <p>CBD, South Bank and South East Queensland hotel and motel programmes.</p>
@@ -381,7 +402,7 @@
     <section class="section">
       <div class="wrap center">
         <h2 class="display-lg">Useful reading before you write the brief.</h2>
-        <div class="cards" style="margin-top:2rem;text-align:left">
+        <div class="cards-3" style="margin-top:2rem;text-align:left">
           <a class="card" href="/guides/occupied-hotel-refurbishment/">
             <h3>How to replace floors without closing the hotel</h3>
             <p>Staging, night work, odour, guest-safe areas and the questions engineering should ask before a wing is stripped.</p>
@@ -430,7 +451,7 @@
       <form id="lead-form" action="https://formspree.io/f/mkolyele" method="post" novalidate>
         <input type="hidden" name="page" value="https://hotelflooring.com.au/">
         <input type="hidden" name="source" value="https://hotelflooring.com.au/">
-        <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
         <div class="fields">
           <div class="fields fields-2">
             <div class="field">

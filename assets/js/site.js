@@ -8,6 +8,40 @@
 
   if (year) year.textContent = String(new Date().getFullYear());
 
+  var carousel = document.querySelector("[data-carousel]");
+  if (carousel) {
+    var slides = carousel.querySelectorAll("figure");
+    var caption = carousel.querySelector("[data-carousel-caption]");
+    var dots = carousel.querySelectorAll("[data-carousel-dot]");
+    var index = 0;
+
+    function showSlide(n) {
+      index = (n + slides.length) % slides.length;
+      slides.forEach(function (slide, i) {
+        slide.classList.toggle("is-active", i === index);
+      });
+      dots.forEach(function (dot, i) {
+        dot.setAttribute("aria-selected", i === index ? "true" : "false");
+      });
+      if (caption) {
+        var next = slides[index].getAttribute("data-caption");
+        if (next) caption.textContent = next;
+      }
+    }
+
+    dots.forEach(function (dot, i) {
+      dot.addEventListener("click", function () {
+        showSlide(i);
+      });
+    });
+
+    if (slides.length > 1 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      window.setInterval(function () {
+        showSlide(index + 1);
+      }, 5500);
+    }
+  }
+
   function openNav() {
     if (!overlay || !toggle) return;
     overlay.classList.add("is-open");
