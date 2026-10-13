@@ -13,15 +13,22 @@
     var slides = carousel.querySelectorAll("figure");
     var caption = carousel.querySelector("[data-carousel-caption]");
     var dots = carousel.querySelectorAll("[data-carousel-dot]");
+    var pause = carousel.querySelector("[data-carousel-pause]");
+    var motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var timer;
+    var paused = motion.matches;
     var index = 0;
 
     function showSlide(n) {
       index = (n + slides.length) % slides.length;
       slides.forEach(function (slide, i) {
         slide.classList.toggle("is-active", i === index);
+        slide.hidden = i !== index;
+        slide.setAttribute("aria-hidden", i === index ? "false" : "true");
+        if (i === index) slide.querySelector("img").loading = "eager";
       });
       dots.forEach(function (dot, i) {
-        dot.setAttribute("aria-selected", i === index ? "true" : "false");
+        dot.setAttribute("aria-pressed", i === index ? "true" : "false");
       });
       if (caption) {
         var next = slides[index].getAttribute("data-caption");
@@ -29,18 +36,44 @@
       }
     }
 
+    function updateRotation() {
+      window.clearInterval(timer);
+      if (pause) {
+        pause.hidden = false;
+        pause.textContent = paused ? "Play slideshow" : "Pause slideshow";
+        pause.setAttribute("aria-pressed", paused ? "true" : "false");
+      }
+      if (!paused && !document.hidden && slides.length > 1) {
+        timer = window.setInterval(function () { showSlide(index + 1); }, 6500);
+      }
+    }
+
     dots.forEach(function (dot, i) {
       dot.addEventListener("click", function () {
+        paused = true;
+        updateRotation();
         showSlide(i);
       });
     });
 
-    if (slides.length > 1 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      window.setInterval(function () {
-        showSlide(index + 1);
-      }, 5500);
-    }
+    if (pause) pause.addEventListener("click", function () {
+      paused = !paused;
+      updateRotation();
+    });
+    carousel.addEventListener("mouseenter", function () { window.clearInterval(timer); });
+    carousel.addEventListener("mouseleave", updateRotation);
+    carousel.addEventListener("focusin", function (event) {
+      if (event.target !== pause) { paused = true; updateRotation(); }
+    });
+    document.addEventListener("visibilitychange", updateRotation);
+    motion.addEventListener("change", function () {
+      if (motion.matches) { paused = true; updateRotation(); }
+    });
+    showSlide(0);
+    updateRotation();
   }
+
+  var inertElements = [];
 
   function openNav() {
     if (!overlay || !toggle) return;
@@ -48,16 +81,26 @@
     overlay.removeAttribute("hidden");
     toggle.setAttribute("aria-expanded", "true");
     document.body.classList.add("nav-open");
-    var close = overlay.querySelector("[data-nav-close]");
+    Array.from(document.body.children).forEach(function (element) {
+      if (element !== overlay && !element.inert) {
+        element.inert = true;
+        inertElements.push(element);
+      }
+    });
+    var close = overlay.querySelector(".nav-close");
     if (close) close.focus();
   }
 
   function closeNav() {
     if (!overlay || !toggle) return;
+    if (!overlay.classList.contains("is-open")) return;
     overlay.classList.remove("is-open");
     overlay.setAttribute("hidden", "");
     toggle.setAttribute("aria-expanded", "false");
     document.body.classList.remove("nav-open");
+    inertElements.forEach(function (element) { element.inert = false; });
+    inertElements = [];
+    toggle.focus();
   }
 
   if (toggle && overlay) {
@@ -75,18 +118,42 @@
     });
 
     document.addEventListener("keydown", function (event) {
+      if (!overlay.classList.contains("is-open")) return;
       if (event.key === "Escape") closeNav();
+      if (event.key === "Tab") {
+        var focusable = Array.from(overlay.querySelectorAll('a[href], button:not([disabled])'))
+          .filter(function (element) { return element.tabIndex >= 0 && element.getClientRects().length; });
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault(); last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault(); first.focus();
+        }
+      }
     });
+    var backdrop = overlay.querySelector(".nav-overlay__backdrop");
+    if (backdrop) backdrop.tabIndex = -1;
   }
 
   var form = document.getElementById("lead-form");
   if (!form) return;
+  form.noValidate = true;
 
   var thanks = document.getElementById("form-thanks");
   var status = document.getElementById("form-status");
   var submitBtn = form.querySelector('button[type="submit"]');
   var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  var phonePattern = /[0-9]{8,}/;
+  var phonePattern = /^[+()\d\s.-]+$/;
+
+  form.querySelectorAll(".field").forEach(function (wrap) {
+    var field = wrap.querySelector("input, select, textarea");
+    var error = wrap.querySelector(".field__error");
+    if (field && error) {
+      error.id = field.id + "-error";
+      field.setAttribute("aria-describedby", error.id);
+    }
+  });
 
   function fieldWrap(id) {
     var field = document.getElementById(id);
@@ -154,8 +221,9 @@
       ok = false;
     }
 
-    var phone = valueOf("phone").replace(/\s+/g, "");
-    if (phone && !phonePattern.test(phone)) {
+    var phone = valueOf("phone");
+    var digits = phone.replace(/\D/g, "");
+    if (phone && (!phonePattern.test(phone) || digits.length < 8 || digits.length > 15)) {
       setError("phone", "Please enter a phone number we can return.");
       ok = false;
     }
@@ -184,10 +252,13 @@
       submitBtn.textContent = "Sending…";
     }
 
+    var controller = new AbortController();
+    var timeout = window.setTimeout(function () { controller.abort(); }, 20000);
     fetch(form.action, {
       method: "POST",
       body: new FormData(form),
-      headers: { Accept: "application/json" }
+      headers: { Accept: "application/json" },
+      signal: controller.signal
     })
       .then(function (response) {
         if (response.ok) {
@@ -209,7 +280,7 @@
           }
           return;
         }
-        return response.json().then(function (data) {
+        return response.json().catch(function () { return null; }).then(function (data) {
           var detail = "Something went wrong while sending. Please call 1300 207 915.";
           if (data && data.errors && data.errors.length) {
             detail = data.errors
@@ -224,7 +295,9 @@
       .catch(function (error) {
         showStatus(
           "error",
-          error && error.message
+          error && error.name === "AbortError"
+            ? "Sending took too long. Please try again or call 1300 207 915."
+            : error && error.message
             ? error.message
             : "Something went wrong while sending. Please call 1300 207 915."
         );
@@ -232,6 +305,7 @@
           submitBtn.disabled = false;
           submitBtn.textContent = "Send enquiry";
         }
-      });
+      })
+      .finally(function () { window.clearTimeout(timeout); });
   });
 })();

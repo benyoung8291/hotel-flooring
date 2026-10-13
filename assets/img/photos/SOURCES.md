@@ -41,3 +41,19 @@ Used with the sister-site library. Caption these as Premrest hospitality / insta
 | page-refurb.webp | `install-1.webp` — flooring being installed |
 
 Stock photos are **not** captioned as Premrest projects.
+
+
+## Manufacturer photography selected for the design review (13 October 2026)
+
+These files were sourced from public manufacturer project/product pages at the site owner's request. Attribution identifies the source, not the installer. No partnership, Premrest involvement in these projects, or manufacturer endorsement is claimed. Public availability is not a reuse licence: confirm supplier/photographer reuse permission before merging and publishing these photographs. Original stock files remain available as fallback.
+
+| Local file (and `-800` responsive version) | Source page | Original image |
+| --- | --- | --- |
+| `airlay-guest-room.webp` | [Airlay: Quest Cannon Hill](https://airlay.com.au/project/quest-cannon-hill-qld/) | [Guest bedroom](https://airlay.com.au/wp-content/uploads/2026/06/Quest_Cannon_Hill_1_Bed_Bedroom-1536x1025.webp) |
+| `airlay-serviced-apartment.webp` | [Airlay: Quest Cannon Hill](https://airlay.com.au/project/quest-cannon-hill-qld/) | [Living room](https://airlay.com.au/wp-content/uploads/2026/06/Quest_Cannon_Hill_1_Bed_Living_Room.webp) |
+| `airlay-conference-room.webp` | [Airlay: Quest Cannon Hill](https://airlay.com.au/project/quest-cannon-hill-qld/) | [Conference room](https://airlay.com.au/wp-content/uploads/2026/06/Quest_Cannon_Hill_Conference_Room-1536x1025.webp) |
+| `airlay-hotel-corridor.webp` | [Airlay: The Remington Muswellbrook](https://airlay.com.au/project/the-remingron-muswellbrook/) | [Corridor](https://airlay.com.au/wp-content/uploads/2026/07/Attachment-1-1152x1536.webp) |
+| `forbo-safety-vinyl.webp` | [Forbo: Step safety flooring](https://www.forbo.com/flooring/en-au/products/step-safety-wetroom-flooring/cerfo5) | [Safety vinyl in laundry](https://forbo.azureedge.net/forboimages/591840/Step-Safestep%20R11-175032.jpg) |
+| `forbo-wood-safety-vinyl.webp` | [Forbo: Step safety flooring](https://www.forbo.com/flooring/en-au/products/step-safety-wetroom-flooring/cerfo5) | [Surestep Wood](https://forbo.azureedge.net/forboimages/1956296/Surestep%20Wood%2018712%20174232.webp) |
+
+Original source notes above describe the previous asset selection. The review found that several old subjects were misidentified: `card-corridor`/`page-corridor` show a bedroom; `hero-function`/`card-function` show a decorated table; `page-carpet` shows a timber-floor suite; and `hero-lobby`/`city-melbourne` show a resort pool. Those files are no longer used for those flooring claims. Location-page stock images are illustrative hotel imagery, not evidence of work in the named city. `page-refurb` is a finished interior, not installation in progress.

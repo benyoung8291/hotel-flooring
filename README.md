@@ -6,7 +6,7 @@ Plain HTML/CSS/vanilla JS. No framework. No build step. Deploy the repo root on 
 
 ## Deploy
 
-- `vercel.json` enables `cleanUrls` and `trailingSlash`, and 301s `www.hotelflooring.com.au` to the apex.
+- `vercel.json` enables `cleanUrls` and `trailingSlash`, and permanently redirects `www.hotelflooring.com.au` to the apex.
 - Folder URLs: `melbourne/index.html` → `/melbourne/`.
 - Forms POST to Formspree `https://formspree.io/f/mkolyele`.
 - GA4 measurement ID `G-CW60MQTLVF` is in every page `<head>`. On successful submit, `generate_lead` fires only if `window.gtag` exists.
@@ -33,7 +33,7 @@ Plain HTML/CSS/vanilla JS. No framework. No build step. Deploy the repo root on 
 | `/hotel-corridor-carpet/` | Hotel Corridor Carpet \| Quiet, Durable Corridor Flooring |
 | `/hotel-room-flooring/` | Hotel Room Flooring \| Guest Room Carpet & LVT |
 | `/hotel-vinyl-flooring/` | Hotel Vinyl Flooring \| LVT, Sheet Vinyl & Wet Areas |
-| `/hotel-refurbishment/` | Hotel Refurbishment Flooring \| Install Without Closing Floors |
+| `/hotel-refurbishment/` | Hotel Flooring Refurbishment \| Staged Carpet & Vinyl Install |
 | `/function-rooms/` | Hotel Function Room & Ballroom Flooring \| Carpet & LVT |
 | `/wet-areas/` | Hotel Wet Area Flooring \| Slip-Resistant Vinyl & Pool Surrounds |
 | `/motel-carpet/` | Motel Carpet Replacement \| Room-by-Room Without Closing |
@@ -72,3 +72,7 @@ Plain HTML/CSS/vanilla JS. No framework. No build step. Deploy the repo root on 
 Typography, colour tokens, sheet layout, pill buttons, nav overlay and forest footer follow the sister site [comcorkflooring.com.au](https://comcorkflooring.com.au) (Newsreader + Inter Tight, charcoal / burnt orange / warm page / forest). Hotel interiors are licensed Unsplash/Pexels stock plus Premrest/Comcork hospitality photos — sources and licences in `assets/img/photos/SOURCES.md`. Stock is not captioned as a Premrest hotel project.
 
 Sister links: [premrest.com.au](https://premrest.com.au), [premrestflooring.com.au](https://premrestflooring.com.au), [modularcarpet.com.au](https://modularcarpet.com.au), [comcorkflooring.com.au](https://comcorkflooring.com.au).
+
+## Design and SEO review
+
+See [REVIEW.md](REVIEW.md) for the October 2026 design, photo, accessibility and SEO findings, validation evidence, publication prerequisites and ongoing search priorities. New manufacturer photographs have visible source credits and responsive WebP variants. Confirm supplier image reuse rights before publication; source URLs are recorded in `assets/img/photos/SOURCES.md`.
